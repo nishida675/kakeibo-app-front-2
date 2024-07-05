@@ -1,20 +1,23 @@
+'use client'; // 追加
+
 import React from "react";
 import { Button } from "./ui/button";
-import {signIn, signOut} from "@/auth";
+import { useRouter } from 'next/navigation';
+import { ServerSignIn, ServerSignOut } from "./serverActions";
 
 export function SignIn({
   provider,
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
+  const router = useRouter();
+  const handleSignIn = async () => {
+    await ServerSignIn(provider);
+    router.push('/protected-page');
+};
   return (
-    <form 
-      action={async () => {
-        "use server";
-        await signIn(provider);
-      }}
-    >
-      <Button {...props}>サインイン</Button>
-    </form>
+    <Button onClick={handleSignIn} {...props}>
+    Sign in with {provider}
+    </Button> 
   );
 }
 
@@ -22,16 +25,14 @@ export function SignOut({
   provider,
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    await ServerSignOut();
+    router.push('/');
+};
   return (
-    <form className="w-full"
-    action={async () => {
-      "use server";
-      await signOut();
-    }}
-    >
-      <Button variant="ghost" className="w-full p-0" {...props}>
-        ログアウト
-      </Button>
-    </form>
+    <Button onClick={handleSignOut} {...props}>
+    ログアウト
+    </Button>
   );
 }
