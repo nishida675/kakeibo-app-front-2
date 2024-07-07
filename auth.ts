@@ -13,7 +13,8 @@ export const config: NextAuthConfig = {
         authorized({ request, auth }) {
             try {
                 const { pathname } = request.nextUrl;
-                if (pathname === "/protected-page") return !!auth;
+                if (pathname === "/Month") return !!auth;
+                if (pathname === "/Year") return !!auth;
                 return true;
             } catch (err) {
                 console.log(err);

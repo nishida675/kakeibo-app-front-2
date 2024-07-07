@@ -12,30 +12,36 @@ import {
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import React from "react";
-import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 export function MainNav() {
+  const pathname = usePathname();
   return (
-    <div className="flex gap-4 items-center">
-      <CustomLink href="/">
-        <Button>Home</Button>
-      </CustomLink>
+    <div className="flex gap-2 sm:gap-4 items-center">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/server-example"
-              className={navigationMenuTriggerStyle()}
+              href="/Month"
+              className={`${navigationMenuTriggerStyle()} ${pathname === '/Month' ? 'custom-link' : ''}`}
             >
-              Server Side
+              ひと月の収支
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/client-example"
-              className={navigationMenuTriggerStyle()}
+              href="/Year"
+              className={`${navigationMenuTriggerStyle()} ${pathname === '/Year' ? 'custom-link' : ''}`}
             >
-              Client Side
+              一年の収支
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              href="/input"
+              className={`${navigationMenuTriggerStyle()} ${pathname === '/input' ? 'custom-link' : ''}`}
+            >
+              登録
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>

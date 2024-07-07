@@ -1,30 +1,27 @@
-import {auth} from "@/auth";
-import CustomLink from "@/components/custom-link";
-import { json } from "stream/consumers";
+import { auth } from "@/auth";
+
 
 export default async function Home() {
   const session = await auth();
   return (
-    <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold">🚀NextAuth.js Tutorial</h1>
-      <div>
-        <CustomLink href="/server-example" className="underline">
-          サーバー
-        </CustomLink>
-        と
-        <CustomLink href="/client-example" className="underline">
-          クライアント
-        </CustomLink>
-        の例を見て、ページを保護してセッションデータを取得する方法を確認してください。
-      </div>
-      <div className="flex flex-col rounded-md bg-neutral-100">
-        <div className="p-4 font-bold rounded-t-md bg-neutral-200">
-          Current Session
-        </div>
-        <pre className="py-6 px-4 whitespace-pre-wrap break-all">
-          {JSON.stringify(session, null, 2)}
-        </pre>
-      </div>
-    </div>
+    <main className="flex min-h-screen flex-col items-center p-4 sm:p-6 md:p-24"> 
+      <h1 className="mt-3 text-4xl font-semibold sm:text-5xl md:text-6xl">
+        HKBook
+      </h1>
+      <h4 className="mt-3 text-1xl font-semibold sm:text-3xl">
+        あなたのお金管理させてください
+      </h4>
+
+      {/* アプリの説明セクション */}
+      <section className="mt-6 text-center sm:mt-8 md:mt-10">
+        <p className="mt-4 text-base sm:text-lg md:text-xl">
+          HKBookは、あなたのお金を簡単かつ<br />効率的に管理できるアプリです<br />
+          毎月および毎年の収支を記録します<br />
+          収入や支出の登録も簡単に行えます
+        </p>
+      </section>
+
+      {/* 他のコンテンツ */}
+    </main>
   );
 }

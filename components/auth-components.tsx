@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "./ui/button";
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // next/navigation をインポートする
 import { ServerSignIn, ServerSignOut } from "./serverActions";
 
 export function SignIn({
@@ -10,14 +10,16 @@ export function SignIn({
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
   const router = useRouter();
+  
   const handleSignIn = async () => {
     await ServerSignIn(provider);
-    router.push('/protected-page');
-};
+    router.push('/Month');
+  };
+  
   return (
     <Button onClick={handleSignIn} {...props}>
-    Sign in with {provider}
-    </Button> 
+      Sign in with {provider}
+    </Button>
   );
 }
 
@@ -26,13 +28,14 @@ export function SignOut({
   ...props
 }: { provider?: string } & React.ComponentPropsWithRef<typeof Button>) {
   const router = useRouter();
+  
   const handleSignOut = async () => {
     await ServerSignOut();
-    router.push('/');
-};
+  };
+  
   return (
     <Button onClick={handleSignOut} {...props}>
-    ログアウト
+      ログアウト
     </Button>
   );
 }

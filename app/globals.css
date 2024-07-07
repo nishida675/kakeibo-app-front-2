@@ -74,3 +74,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* styles/globals.css */
+.custom-link {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  body {
+    @apply text-sm;
+  }
+}
