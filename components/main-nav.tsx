@@ -13,39 +13,60 @@ import {
 } from "./ui/navigation-menu";
 import React from "react";
 import { usePathname } from "next/navigation";
+import { useLoginUser } from "./hooks/useLoginUser";
 
 export function MainNav() {
   const pathname = usePathname();
+  const { loginUser} = useLoginUser();
+  const skill = {
+    id: loginUser ? loginUser : null, // スキルIDの例
+  };
+
   return (
     <div className="flex gap-2 sm:gap-4 items-center">
-      <NavigationMenu>
+       {pathname === '/' ? (
+       <NavigationMenu>
+       <NavigationMenuList>
+         <NavigationMenuItem>
+           <NavigationMenuLink
+             href="/Month"
+             className={`${navigationMenuTriggerStyle()} ${pathname === '/' ? ' border-4 border-green-500' : ''}`}
+           >
+             use App
+           </NavigationMenuLink>
+         </NavigationMenuItem>
+         </NavigationMenuList>
+      </NavigationMenu>
+       ) : (
+        <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink
               href="/Month"
-              className={`${navigationMenuTriggerStyle()} ${pathname === '/Month' ? 'custom-link' : ''}`}
+              className={`${navigationMenuTriggerStyle()} ${pathname === '/Month' ? ' border-b-4 border-b-green-500' : ''}`}
             >
               ひと月の収支
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/Year"
-              className={`${navigationMenuTriggerStyle()} ${pathname === '/Year' ? 'custom-link' : ''}`}
+              href={`/Year/${skill.id}`}
+              className={`${navigationMenuTriggerStyle()} ${/^\/Year\/.+$/.test(pathname) ? 'border-b-4 border-b-green-500' : ''}`}
             >
               一年の収支
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink
-              href="/input"
-              className={`${navigationMenuTriggerStyle()} ${pathname === '/input' ? 'custom-link' : ''}`}
+              href={`/input/${skill.id}`}
+              className={`${navigationMenuTriggerStyle()} ${/^\/input\/.+$/.test(pathname) ? 'border-b-4 border-b-green-500' : ''}`}
             >
               登録
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      )}
     </div>
   );
 }
