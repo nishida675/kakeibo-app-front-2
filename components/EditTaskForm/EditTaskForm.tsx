@@ -50,7 +50,7 @@ const EditTaskForm: React.FC<EditTaskFormProps> = ({ id, balanceId, date, catego
       price: price.toString(),
       dueDate: date,
     });
-  }, [id, category, balanceName, price, date]);
+  }, [id, balanceId, category, balanceName, price, date]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>

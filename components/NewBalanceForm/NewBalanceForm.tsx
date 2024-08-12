@@ -69,7 +69,7 @@ const NewBalanceForm = ({ id, setIsOpen, setTitle, setMessage, setColor  }: { id
       setColor(false);
       router.push(`/input/${skill.id}`);
     }
-  }, [formData, loginUser, router]);
+  }, [formData, loginUser, router, id, setIsOpen, setTitle, setMessage, setColor]);
 
   return (
     <div className="mt-10 mx-auto w-full max-w-sm">
