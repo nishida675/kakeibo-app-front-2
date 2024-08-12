@@ -23,7 +23,7 @@ const EditPage= () => {
     if (id) {
       setLoginUser(id);
     }
-  }, [id]);
+  }, [id, setLoginUser]);
 
   if (!id || !balanceId || !date || !category || !balanceName || !price) {
     return <div>Loading...</div>;

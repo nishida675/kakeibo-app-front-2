@@ -32,7 +32,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ id, balanceId, setIsOpen, s
         setIsOpen(false);
         router.push(`/Month`);
       });
-  }, [loginUser, router]);
+  }, [loginUser, router, balanceId, id, setDeleteFunc, setIsOpen, setMessage, setTitle]);
 
   return (
     <form onSubmit={handleDelete}>
