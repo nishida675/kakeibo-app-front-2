@@ -42,8 +42,6 @@ const InputPage = () => {
 
   return (
     <div className="flex-col justify-center py-20">
-      <h1>Router Query ID: {id}</h1>
-      <div>Login User ID: {userId}</div>
       <MessageDialog
         open={isOpen}
         onCancel={() => setIsOpen(false)}
