@@ -15,10 +15,6 @@ const EditPage= () => {
   const balanceName = searchParams.get('balanceName');
   const price = searchParams.get('price');
 
-  const [theme, setTheme] = useState("");
-  const [word, setWord] = useState("");
-  const [color, setColor] = useState(false);
-
   const { loginUser, setLoginUser } = useLoginUser();
 
   console.log({ id, balanceId, date, category, balanceName, price }); 
@@ -43,9 +39,6 @@ const EditPage= () => {
           category={category}
           balanceName={balanceName}
           price={parseFloat(price)}
-          setTheme={setTheme}
-          setWord={setWord}
-          setColor={setColor}
         />
     </div>
   )

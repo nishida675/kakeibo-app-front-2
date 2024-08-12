@@ -38,7 +38,6 @@ const DataCard: React.FC<Data> = ({ data, setIsOpen, setTitle, setMessage, setDe
               category={data.category}
               balanceName={data.balanceName}
               price={data.price}
-              setIsOpen={setIsOpen}
               setTitle={setTitle}
               setMessage={setMessage}
               />

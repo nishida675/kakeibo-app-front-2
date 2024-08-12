@@ -31,5 +31,7 @@ import React, {
     );
   });
 
+  LoginUserProvider.displayName = 'LoginUserProvider';
+
   // コンテキストを使用するためのカスタムフック
 export const useLoginId = () => useContext(LoginUserContext);
