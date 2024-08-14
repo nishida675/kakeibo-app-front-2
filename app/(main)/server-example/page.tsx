@@ -2,6 +2,8 @@ import { auth } from "@/auth";
 import CustomLink from "@/components/custom-link";
 import SessionData from "@/components/session-data";
 
+export const runtime = "edge";
+
 export default async function Page() {
 
   const session = await auth();

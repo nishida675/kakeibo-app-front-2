@@ -14,6 +14,9 @@ import MessageDialog from '@/components/Modal';
 import { useRecoilState } from "recoil";
 import { modalState, modal } from "@/components/hooks/modalState";
 
+
+export const runtime = "edge";
+
 Chart.register(PolarAreaController, RadialLinearScale, ArcElement, Tooltip, Legend);
 
 interface SessionData {

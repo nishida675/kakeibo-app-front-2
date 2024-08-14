@@ -2,6 +2,8 @@
 import { useLoginUser } from "@/components/hooks/useLoginUser";
 import React from "react";
 
+export const runtime = "edge";
+
 const ProtectedPage = () => {
   const { loginUser } = useLoginUser();
   return (

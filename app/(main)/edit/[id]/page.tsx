@@ -5,7 +5,7 @@ import EditTaskForm from "@/components/EditTaskForm/EditTaskForm";
 import { useEffect, useState } from 'react';
 import { useLoginUser } from '@/components/hooks/useLoginUser';
 
-
+export const runtime = "edge";
 const EditPage= () => {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');

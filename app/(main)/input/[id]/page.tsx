@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 import { useLoginUser } from "@/components/hooks/useLoginUser";
 import MessageDialog from '@/components/Modal';
 
+export const runtime = "edge";
+
 const InputPage = () => {
   const [id, setId] = useState<string>('');
   const params = useParams();

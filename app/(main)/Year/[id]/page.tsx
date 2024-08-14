@@ -7,6 +7,8 @@ import { useEffect, useState, useRef } from "react";
 import Chart from "chart.js/auto"; 
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
+export const runtime = "edge";
+
 interface BalanceData {
   [key: string]: number; 
 }
